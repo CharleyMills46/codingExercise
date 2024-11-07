@@ -1,0 +1,30 @@
+{% if results %}
+<div class="overflow-x-auto">
+  <table class="w-full border-collapse">
+    <thead>
+      <tr>
+        <th class="p-2 border text-left">Book Title</th>
+        <th class="p-2 border text-left">Author</th>
+        <th class="p-2 border text-left">Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for book in results %}
+      <tr>
+        <td class="p-2 border">{{ book.title }}</td>
+        <td class="p-2 border">{{ book.author }}</td>
+        <td class="p-2 border">
+          <a href="{{ book.url }}"
+             target="_blank"
+             class="text-blue-600 underline hover:text-blue-800">
+             Open Library Page
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<p>No books found.</p>
+{% endif %}
